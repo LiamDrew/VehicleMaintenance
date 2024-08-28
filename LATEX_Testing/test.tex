@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage{caption} % For customizing captions
+\usepackage{hyperref} % Add this to use the \href command
+    \hypersetup{
+        colorlinks=true,
+        linkcolor=blue,
+        urlcolor=blue,
+    }
+\usepackage{float} % Include the float package
+\usepackage{enumitem} % For list spacing
+
+
+
+\begin{document}
+
+
+\begin{center}
+\textbf{Service Report \today} \\
+\end{center}
+
+
+% \begin{flushleft}
+Vehicles due for service: \\
+\begin{enumerate}[leftmargin=*]
+    \item Cat 906M Loader
+        \begin{itemize}[leftmargin=*]
+            \item Motor Oil Change (300 Hours Overdue)
+                \begin{table}[H]
+                    \centering
+                    \begin{tabular}{lccc}
+                    \toprule
+                    Part Name & Quantity & Part Number & Part Link\\
+                    \midrule
+                    Oil Filter & 1 & 377-6969 & \href{https://parts.cat.com/en/catcorp/377-6969}{Here} \\
+                    Cat Oil Filter & 2.96 Gal & DEO-ULS & \href{https://parts.cat.com/en/catcorp/515-3986}{Here} \\
+                    \bottomrule
+                    \end{tabular}
+                \end{table}
+        \end{itemize}
+    \item John Deere 6220 Tractor
+        \begin{itemize}
+            \item Change Cab Air Filters (2 Months Overdue)
+                \begin{table}[H]
+                    \centering
+                    \begin{tabular}{lccc}
+                    \toprule
+                    Part Name & Quantity & Part Number & Part Link\\
+                    \midrule
+                    Standard Air Filter & 2 & AL177184 & \href{https://shop.deere.com/us/product/AL177184%3A-Cab-Air-Filter/p/AL177184}{Here} \\
+                    Recirculation Air Filter & 2 & AL155288 & \href{https://shop.deere.com/us/product/L155288%3A-Air-Conditioning-Recirculation-Air-Filter-Element/p/L155288}{Here} \\
+                    \bottomrule
+                    \end{tabular}
+                \end{table}
+            \item Check and Clean Engine and Cab Air Filters (100 Hours overdue)
+                \textbf{NOTE: Should something simple like this be included in the service database? Or should I leave this up to the vehicle operator to know when this needs to be done?}
+            \item Change Fuel Filters (200 Hours Overdue)
+                \begin{table}[H]
+                    \centering
+                    \begin{tabular}{lccc}
+                    \toprule
+                    Part Name & Quantity & Part Number & Part Link\\
+                    \midrule
+                    Inline Fuel Filter & 1 & AL153517 & \href{https://shop.deere.com/us/product/AL153517%3A-Inline-Fuel-Filter/p/AL153517}{Here} \\
+                    Final Fuel Filter & 1 & RE62419 & \href{https://shop.deere.com/us/product/RE62419%3A-Final-Fuel-Filter/p/RE62419}{Here} \\
+                    Primary Fuel Filter & 1 & RE509031 & \href{https://shop.deere.com/us/product/RE509031%3A-Final-Fuel-Filter/p/RE509031}{Here} \\
+                    Fuel Filter & 1 & RE509208 & \href{https://shop.deere.com/us/product/RE509208%3A-Primary-Fuel-Filter/p/RE509208}{Here} \\
+                    \bottomrule
+                    \end{tabular}
+                \end{table}
+            \item Change Hydraulic/Transmission Oil (150 Hours Overdue)
+                \begin{table}[H]
+                    \centering
+                    \begin{tabular}{lccc}
+                    \toprule
+                    Part Name & Quantity & Part Number & Part Link\\
+                    \midrule
+                    Hydraulic Oil Filter & 1 & AL156625 & \href{https://shop.deere.com/us/product/AL156625%3A-Hydraulic-Oil-Filter/p/AL156625}{Here} \\
+                    Transmission Oil Filter & 1 & AL118036 & \href{https://shop.deere.com/us/product/AL118036%3A-Hydraulic-Oil-Filter/p/AL118036}{Here} \\
+                    Hydraulic Filter Element & 1 & RE509031 & \href{https://shop.deere.com/us/product/RE509031%3A-Final-Fuel-Filter/p/RE509031}{Here} \\
+                    Hy-Gard Transmission Oil & 13.2 Gal & AR69444 & \href{https://shop.deere.com/us/product/AR69444%3A-Transmission-and-Hydraulic-Oil%2C-Hy-Gard%E2%84%A2%2C-18-9-Liter-(5-Gallon)/p/AR69444}{Here} \\
+                    \bottomrule
+                    \end{tabular}
+                \end{table}
+            \item Change Motor Oil (100 Hours Overdue)
+                \begin{table}[H]
+                    \centering
+                    \begin{tabular}{lccc}
+                    \toprule
+                    Part Name & Quantity & Part Number & Part Link\\
+                    \midrule
+                    Plus & 4.2 Gal & TY26679 & \href{https://shop.deere.com/us/product/TY26679%3A-Premium-Engine-Oil%2C-Plus-50%E2%84%A2-II%2C-15W-40%2C-API-CK4-SN%2C-18-9-Liter-(5-Gallon)/p/TY26679}{Here} \\
+                    Cat Oil Filter & 1 & RE504836 & \href{https://shop.deere.com/us/product/RE504836%3A-Engine-Oil-Filter/p/RE504836}{Here} \\
+                    \bottomrule
+                    \end{tabular}
+                \end{table}
+        \end{itemize}
+\end{enumerate}
+
+% \end{flushleft}
+
+% \begin{tabular}
+%     \toprule
+%     Part Name & Quantity & Part Number & Part Link (\$) \\
+%     \midrule
+%     1 & 2 & 3 & 4 & 5
+% Cat motor oil & 15 Gal & 12345 & \href{https://www.example.com}{part link} \\
+% Bananas & 2 & 0.80 \\
+% Cherries & 100g & 2.00 \\
+
+
+% \begin{table}[ht]
+% \centering
+% \begin{tabular}{c|c|c|c|c|c}
+% 1 & Oil_Change_JD6220 & JD6220 & 2024-02-01 & 3 & 4500 \\
+% 2 & Oil_Change_JD6220 & JD6220 & 2023-08-18 & 3 & 4100 \\
+% \end{tabular}
+% \end{tabular}
+% \end{table}
+
+\end{document}
