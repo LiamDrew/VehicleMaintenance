@@ -194,37 +194,39 @@ INSERT INTO service_records(service_id, vehicle_id, service_date, service_mileag
 
 
 -- Queries
+-- Test Query
+-- SELECT * FROM vehicles
 
 
--- good query commented out for now.
--- SELECT 
---     v.vehicle_id, 
---     v.make, 
---     v.model,
---     s.service_name,
---     p.part_number,
---     p.quantity,
---     p.part_description,
---     p.part_hyperlink,
---     CASE
---         WHEN (julianday('now') - julianday(COALESCE(sr.last_service_date, '1900-01-01'))) > s.months_between_service * 30 THEN 'Date (' || CAST((julianday('now') - julianday(COALESCE(sr.last_service_date, '1900-01-01'))) - (s.months_between_service * 30) AS INT) || ' days overdue)'
---         WHEN (v.current_mileage - COALESCE(sr.last_service_mileage, 0)) > s.miles_between_service THEN 'Mileage (' || ((v.current_mileage - COALESCE(sr.last_service_mileage, 0)) - s.miles_between_service) || ' miles overdue)'
---         WHEN (v.current_hours - COALESCE(sr.last_service_hours, 0)) > s.hours_between_service THEN 'Hours (' || ((v.current_hours - COALESCE(sr.last_service_hours, 0)) - s.hours_between_service) || ' hours overdue)'
---         ELSE 'Not due'
---     END AS Due_Based_On
--- FROM vehicles v
--- JOIN services s ON v.vehicle_id = s.vehicle_id
--- LEFT JOIN (
---     SELECT service_id, vehicle_id, MAX(service_date) AS last_service_date, MAX(service_mileage) AS last_service_mileage, MAX(service_hours) AS last_service_hours
---     FROM service_records
---     GROUP BY service_id, vehicle_id
--- ) sr ON s.service_id = sr.service_id AND s.vehicle_id = sr.vehicle_id
--- LEFT JOIN parts p ON s.service_id = p.service_id AND s.vehicle_id = p.vehicle_id
--- WHERE
---     (julianday('now') - julianday(COALESCE(sr.last_service_date, '1900-01-01'))) > s.months_between_service * 30
---     OR (v.current_mileage - COALESCE(sr.last_service_mileage, 0)) > s.miles_between_service
---     OR (v.current_hours - COALESCE(sr.last_service_hours, 0)) > s.hours_between_service
--- ORDER BY v.vehicle_id, s.service_name, p.part_number;
+--good query commented out for now.
+SELECT 
+    v.vehicle_id, 
+    v.make, 
+    v.model,
+    s.service_name,
+    p.part_number,
+    p.quantity,
+    p.part_description,
+    p.part_hyperlink,
+    CASE
+        WHEN (julianday('now') - julianday(COALESCE(sr.last_service_date, '1900-01-01'))) > s.months_between_service * 30 THEN 'Date (' || CAST((julianday('now') - julianday(COALESCE(sr.last_service_date, '1900-01-01'))) - (s.months_between_service * 30) AS INT) || ' days overdue)'
+        WHEN (v.current_mileage - COALESCE(sr.last_service_mileage, 0)) > s.miles_between_service THEN 'Mileage (' || ((v.current_mileage - COALESCE(sr.last_service_mileage, 0)) - s.miles_between_service) || ' miles overdue)'
+        WHEN (v.current_hours - COALESCE(sr.last_service_hours, 0)) > s.hours_between_service THEN 'Hours (' || ((v.current_hours - COALESCE(sr.last_service_hours, 0)) - s.hours_between_service) || ' hours overdue)'
+        ELSE 'Not due'
+    END AS Due_Based_On
+FROM vehicles v
+JOIN services s ON v.vehicle_id = s.vehicle_id
+LEFT JOIN (
+    SELECT service_id, vehicle_id, MAX(service_date) AS last_service_date, MAX(service_mileage) AS last_service_mileage, MAX(service_hours) AS last_service_hours
+    FROM service_records
+    GROUP BY service_id, vehicle_id
+) sr ON s.service_id = sr.service_id AND s.vehicle_id = sr.vehicle_id
+LEFT JOIN parts p ON s.service_id = p.service_id AND s.vehicle_id = p.vehicle_id
+WHERE
+    (julianday('now') - julianday(COALESCE(sr.last_service_date, '1900-01-01'))) > s.months_between_service * 30
+    OR (v.current_mileage - COALESCE(sr.last_service_mileage, 0)) > s.miles_between_service
+    OR (v.current_hours - COALESCE(sr.last_service_hours, 0)) > s.hours_between_service
+ORDER BY v.vehicle_id, s.service_name, p.part_number;
 
 
 --bunch of garbage below:
